@@ -1,55 +1,26 @@
 <template>
-    <div id="app">
-        <b-button size="sm" @click="toggle">
-            {{ show ? 'Hide' : 'Show' }} Alert
-        </b-button>
-        <b-alert
-        v-model="show"
-        class="mt-3"
-        dismissible
-        @dismissed="dismissed"
-        >
-            Hello {{ name }}!
-      </b-alert>
-    </div>
+  <div id="app">
+    <NavBar/>
+    <router-view/>
+  </div>
 </template>
 
 <script>
-
+// @ is an alias to /src
+import NavBar from '@/components/NavBar.vue'
 export default {
-  name: 'App',
   components: {
-  },
-    data() {
-    return {
-      name: 'BootstrapVue',
-      show: true
-    }
-  },
-  watch: {
-    show(newVal) {
-      console.log('Alert is now ' + (newVal ? 'visible' : 'hidden'))
-    }
-  },
-  methods: {
-    toggle() {
-      console.log('Toggle button clicked')
-      this.show = !this.show
-    },
-    dismissed() {
-      console.log('Alert dismissed')
-    }
+    NavBar
   }
 }
 </script>
 
-<style>
+<style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
