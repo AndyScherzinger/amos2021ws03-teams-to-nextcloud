@@ -1,48 +1,17 @@
 <template>
-    <b-container>
-      <TeamsInfo :context="context"/>
-      <FileUpload/>
-    </b-container>
+<div id="app">
+    <NavBar />
+    <router-view/>
+</div>
 </template>
 
 <script>
-import * as microsoftTeams from '@microsoft/teams-js';
-import TeamsInfo from './components/TeamsInfo.vue';
-import FileUpload from './components/FileUpload.vue'
+import NavBar from '@/components/Navbar.vue';
 export default {
   name: 'App',
     components: {
-        TeamsInfo, FileUpload 
-    },
-    data() {
-        return {
-          name: 'BootstrapVue',
-          show: true,
-          context: null,
-          contextLoaded: false,
-        }
-  },
-  mounted: function() {
-    /*
-        For the moment this our configuration page so that we can add the Tab to Teams
-        TODO: This should be moved into its own route with Vue Routing later
-     */
-    microsoftTeams.initialize();
-    microsoftTeams.settings.registerOnSaveHandler((saveEvent) => {
-        microsoftTeams.settings.setSettings({
-            websiteUrl: process.env.VUE_APP_NGROK_URL,
-            contentUrl: process.env.VUE_APP_NGROK_URL,
-            entityId: "grayIconTab",
-            suggestedDisplayName: "Nextcloud"
-        });
-        saveEvent.notifySuccess();
-    });
-    microsoftTeams.getContext((context)=>{
-        this.context = context;
-        this.contextLoaded = true;
-    })
-    microsoftTeams.settings.setValidityState(true);
-  }
+        NavBar
+    }
 }
 </script>
 
