@@ -1,7 +1,7 @@
 <template>
 <div>
     <b-alert 
-        fade=true
+        fade
         variant="success" 
         :show="dismissCountdown"
         @dismissed="dismissCountdown=0"
