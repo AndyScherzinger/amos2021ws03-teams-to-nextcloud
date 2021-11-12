@@ -2,6 +2,7 @@
     <b-container>
       <TeamsInfo :context="context"/>
       <FileUpload/>
+      <LoginButton/>
     </b-container>
 </template>
 
@@ -9,10 +10,13 @@
 import * as microsoftTeams from '@microsoft/teams-js';
 import TeamsInfo from './components/TeamsInfo.vue';
 import FileUpload from './components/FileUpload.vue'
+import LoginButton from './components/LoginButton.vue';
 export default {
   name: 'App',
     components: {
-        TeamsInfo, FileUpload 
+        TeamsInfo,
+        FileUpload,
+        LoginButton
     },
     data() {
         return {

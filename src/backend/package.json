@@ -4,13 +4,17 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-fileupload": "^1.2.1",
+    "express-session": "^1.17.2",
+    "node-fetch": "^3.1.0",
+    "openid-client": "^5.0.2",
     "webdav": "^4.7.0",
     "webdav-fs": "^4.0.0"
   }
