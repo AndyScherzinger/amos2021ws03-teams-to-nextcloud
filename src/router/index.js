@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
+import Oauth from '../views/Oauth.vue'
 
 Vue.use(VueRouter)
 
@@ -18,6 +19,11 @@ const routes = [
     component: Login,
     meta: { guest: true }
   },
+  {
+    path: '/oauth',
+    name: 'Oauth',
+    component: Oauth
+  }
 ];
 
 const router = new VueRouter({
